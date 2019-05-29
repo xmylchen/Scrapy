@@ -19,8 +19,6 @@ class doubanSpider(scrapy.Spider):
             item['dataLink'] = book.css('a').xpath('@href').extract()
             item['author'] = book.xpath('div[@class="desc"]/text()').extract()
             item['grade'] = book.xpath('div[@class="rating"]/span/text()').extract()
-
-            print(item['grade'])
             yield item
         nextLink = selector.xpath('//span[@class="next"]/link/@href').extract()
         # 第10页是最后一页，没有下一页的链接
