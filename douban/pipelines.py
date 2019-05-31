@@ -6,6 +6,7 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import pymongo
+import redis
 from scrapy.conf import settings
 
 class DoubanPipeline(object):

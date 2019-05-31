@@ -68,7 +68,15 @@ DOWNLOAD_DELAY = 6
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'douban.pipelines.DoubanPipeline': 300,
+   # 'scrapy_redis.pipelines.RedisPipeline': 100
 }
+#启用Redis调度存储请求队列
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+
+#确保所有的爬虫通过Redis去重
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+REDIS_HOST = '127.0.0.1'
+
 # MONGODB 主机名
 MONGODB_HOST = "127.0.0.1"
 # MONGODB 端口号
@@ -76,7 +84,7 @@ MONGODB_PORT = 27017
 # 数据库名称
 MONGODB_DBNAME = "douban"
 # 存放数据的表名称
-MONGODB_SHEETNAME = "Social_science"
+MONGODB_SHEETNAME = "Books"
 #user
 MONGODB_USER = "root"
 #pass

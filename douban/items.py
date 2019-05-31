@@ -19,3 +19,5 @@ class DoubanItem(scrapy.Item):
     grade = scrapy.Field()
     #作者
     author = scrapy.Field()
+    #类别
+    category = scrapy.Field()
